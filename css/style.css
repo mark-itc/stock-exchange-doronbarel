@@ -3,7 +3,6 @@ html {
   margin: 0;
   padding: 0;
 }
-
 #searchResultsBox {
     position: absolute;
     top: 50px;
@@ -14,12 +13,31 @@ html {
     overflow: auto;
     box-shadow: 0 5px 15px 0 rgb(0 0 0 / 9%);
 }
-
 .resultItem {
     border-bottom: 1px solid #000000;
     padding-top: 5px;
 }
-
-#searchSpinner {
+#searchSpinner, #summarySpinner, #chartSpinner {
     display: none;
+}
+#companyNameContainer, #companyDescContainer {
+    display: flex;
+    align-items: center;
+}
+.companyImage {
+    width: 70px;
+    padding: 10px;
+}
+.companyDescription {
+    padding: 25px;
+    width: 90%;
+}
+#stockPriceContainer, #companyChartContainer {
+    padding: 25px;
+}
+.priceGain {
+    color: rgb(0, 176, 0);
+}
+.priceLoss {
+    color: red;
 }

@@ -2,11 +2,10 @@ const searchQuery = document.getElementById("searchQuery");
 const searchButton = document.getElementById("searchButton");
 const searchForm = document.getElementById("searchForm");
 const searchSpinner = document.getElementById("searchSpinner");
-
+const resultsContainer = document.getElementById("searchResultsBox");
 searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const fetchURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchQuery.value}&limit=10&exchange=NASDAQ`
-    const resultsContainer = document.getElementById("searchResultsBox");
     resultsContainer.innerHTML = '';
     searchSpinner.style.display = "inline-block";
     fetch(fetchURL)
@@ -29,7 +28,9 @@ searchForm.addEventListener('submit', (event) => {
         });
     searchSpinner.style.display = "none";
 });
-
+searchForm.addEventListener('input', (event) => {
+    resultsContainer.innerHTML = '';
+});
 class Stock {
     constructor(resultObject) {
       this.name = resultObject.name;
@@ -39,7 +40,7 @@ class Stock {
       const resultLi = document.createElement("li");
       resultLi.classList.add("list-group-item");
       const resultText = document.createElement("p");
-      resultText.innerHTML = `<a href='/company.html?symbol=${this.symbol}'>${this.name} (${this.symbol})</a>`;
+      resultText.innerHTML = `<a href='./company.html?symbol=${this.symbol}'>${this.name} (${this.symbol})</a>`;
       resultLi.appendChild(resultText);
       return resultLi;
     }
