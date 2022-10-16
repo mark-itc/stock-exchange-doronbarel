@@ -1,0 +1,25 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+#searchResultsBox {
+    position: absolute;
+    top: 50px;
+    right: 95px;
+    z-index: 999;
+    margin-top: -3px;
+    background-color: #fff;
+    overflow: auto;
+    box-shadow: 0 5px 15px 0 rgb(0 0 0 / 9%);
+}
+
+.resultItem {
+    border-bottom: 1px solid #000000;
+    padding-top: 5px;
+}
+
+#searchSpinner {
+    display: none;
+}
