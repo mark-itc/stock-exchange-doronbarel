@@ -49,7 +49,7 @@ fetch(fetchURL)
         });
 summarySpinner.style.display = "none";
 function generatePriceChart(symbol, gain) {
-    const fetchURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/AAPL?serietype=line`
+    const fetchURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/${symbol}?serietype=line`
     fetch(fetchURL)
         .then(async response => {
             const isJson = response.headers.get('content-type')?.includes('application/json');
