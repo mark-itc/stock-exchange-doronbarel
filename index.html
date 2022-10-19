@@ -34,6 +34,11 @@
     </nav>
     <div class="marquee">
         <p id="stockTicker">
+            <script type="module">
+                import { Marquee } from  "./js/marquee.js";
+                const marquee = new Marquee(document.getElementById('stockTicker'));
+                marquee.load();
+            </script>
         </p>    
     </div>
     <script src="js/stocks.js"></script>
