@@ -45,3 +45,32 @@ html {
 .priceLoss {
     color: red;
 }
+
+.marquee {
+    height: 50px;
+    position: relative;
+    background-color: rgb(255, 244, 186);
+}
+
+.marquee p {
+    position: absolute;
+    width: max-content;
+    height: 50px;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    animation: scroll-left 10000s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.tickerElement {
+    font-weight:bold;
+}

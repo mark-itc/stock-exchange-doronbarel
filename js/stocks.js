@@ -3,6 +3,7 @@ const searchButton = document.getElementById("searchButton");
 const searchForm = document.getElementById("searchForm");
 const searchSpinner = document.getElementById("searchSpinner");
 const resultsContainer = document.getElementById("searchResultsBox");
+const stockTicker = document.getElementById("stockTicker");
 searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const fetchURL = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchQuery.value}&limit=10&exchange=NASDAQ`
@@ -59,4 +60,32 @@ class Stock {
       resultLi.appendChild(resultText);
       return resultLi;
     }
+}
+window.onload = (event) => {
+    initiateStockTicker();
+};
+
+function initiateStockTicker() {
+    const fetchURL = 'https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quotes/nasdaq'
+    fetch(fetchURL)
+        .then(async data => {
+            const isJson = data.headers.get('content-type')?.includes('application/json');
+            const stockTickerData = isJson ? await data.json() : data;
+            if (isJson) {
+                console.log(stockTickerData);
+                const dataArray = [];
+                // limiting marquee stocks to only 1000 elements to improve performance
+                for(let i = 0; i < 1000; i++) {
+                    let element = stockTickerData[i]
+                    dataArray.push(`<span class='tickerElement'>${element.symbol} ${element.changesPercentage*1 > 0 ? "<span class='priceGain'>+" : "<span class='priceLoss'>"}${(element.changesPercentage*1).toFixed(2)}%</span></span>`)
+                }
+                stockTicker.innerHTML = dataArray.join('&nbsp;&nbsp;&nbsp;&nbsp;');
+            } else {
+                response.text().then(error => {
+                    console.log(error);
+            });
+            }
+        }).catch(error => {
+            console.log(error)
+        });
 }
