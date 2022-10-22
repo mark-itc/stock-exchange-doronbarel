@@ -10,7 +10,6 @@ export class Marquee {
                 const stockTickerData = isJson ? await data.json() : data;
                 const stockTicker = this.marqueeElement;
                 if (isJson) {
-                    console.log(stockTickerData);
                     const dataArray = [];
                     // limiting marquee stocks to only 1000 elements to improve performance
                     for(let i = 0; i < 1000; i++) {
