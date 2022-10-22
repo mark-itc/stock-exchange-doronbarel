@@ -34,14 +34,14 @@
         </p>    
     </div>
     <script type="module">
-        import { Marquee } from "./js/marquee.js";
-        import { SearchForm } from "./js/searchform.js";
-        import { SearchResults } from "./js/searchresults.js";
+        import { Marquee } from "./js/Marquee.js";
+        import { SearchForm } from "./js/SearchForm.js";
+        import { SearchResults } from "./js/SearchResults.js";
         const marquee = new Marquee(document.getElementById('stockTicker'));
         marquee.load();
         const form = new SearchForm(document.getElementById('search'));
-        const resultsContainer = document.getElementById('searchResultsBox');
-        const results = new SearchResults(resultsContainer);
+        const results = new SearchResults(document.getElementById('searchResultsBox'));
+        form.addInputClearingListener(document.getElementById('searchResultsBox'));
         form.onSearch((companies) => {
             results.renderResults(companies);
         });

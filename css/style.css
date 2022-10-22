@@ -19,6 +19,8 @@ html {
 }
 #searchSpinner, #summarySpinner, #chartSpinner {
     display: none;
+    width: 50px;
+    margin-right: 10px;
 }
 #companyNameContainer, #companyDescContainer {
     display: flex;
@@ -45,13 +47,11 @@ html {
 .priceLoss {
     color: red;
 }
-
 .marquee {
     height: 50px;
     position: relative;
     background-color: rgb(255, 244, 186);
 }
-
 .marquee p {
     position: absolute;
     width: max-content;
@@ -61,7 +61,6 @@ html {
     text-align: center;
     animation: scroll-left 10000s linear infinite;
 }
-
 @keyframes scroll-left {
     0% {
         transform: translate3d(0, 0, 0);
@@ -70,7 +69,9 @@ html {
         transform: translate3d(-100%, 0, 0);
     }
 }
-
 .tickerElement {
     font-weight:bold;
+}
+.highlight {
+    background-color: yellow;
 }
