@@ -1,0 +1,77 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+#searchResultsBox {
+    position: absolute;
+    top: 50px;
+    right: 95px;
+    z-index: 999;
+    margin-top: -3px;
+    background-color: #fff;
+    overflow: auto;
+    box-shadow: 0 5px 15px 0 rgb(0 0 0 / 9%);
+}
+.resultItem {
+    border-bottom: 1px solid #000000;
+    padding-top: 5px;
+}
+#searchSpinner, #summarySpinner, #chartSpinner {
+    display: none;
+    width: 50px;
+    margin-right: 10px;
+}
+#companyNameContainer, #companyDescContainer {
+    display: flex;
+    align-items: center;
+}
+.companyImage {
+    width: 70px;
+    padding: 10px;
+}
+.companyImage-small {
+    width: 35px;
+    padding: 5px;
+}
+.companyDescription {
+    padding: 25px;
+    width: 90%;
+}
+#stockPriceContainer, #companyChartContainer {
+    padding: 25px;
+}
+.priceGain {
+    color: rgb(0, 176, 0);
+}
+.priceLoss {
+    color: red;
+}
+.marquee {
+    height: 50px;
+    position: relative;
+    background-color: rgb(255, 244, 186);
+}
+.marquee p {
+    position: absolute;
+    width: max-content;
+    height: 50px;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    animation: scroll-left 10000s linear infinite;
+}
+@keyframes scroll-left {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+.tickerElement {
+    font-weight:bold;
+}
+.highlight {
+    background-color: yellow;
+}
